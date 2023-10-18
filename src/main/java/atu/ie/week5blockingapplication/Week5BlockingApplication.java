@@ -15,7 +15,7 @@ public class Week5BlockingApplication {
     }
 
     @Bean
-    public restTemplate() {return new RestTemplate();}
+    public RestTemplate restTemplate() {return new RestTemplate();}
 
 
 }
