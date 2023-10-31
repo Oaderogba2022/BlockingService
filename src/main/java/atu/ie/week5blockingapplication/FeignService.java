@@ -1,6 +1,7 @@
 package atu.ie.week5blockingapplication;
 
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class FeignService {
@@ -10,15 +11,13 @@ public class FeignService {
         this.todoClient = todoClient;
     }
 
-    public TodoResponse fetchData(){
-        TodoResponse td = todoClient.fetchData();
-        System.out.println(td);
-        try{
-            Thread.sleep(2000);
-        }
-        catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        return td;
+    public TodoResponse fetchTodoById(int id){
+        return todoClient.fetchTodoId(id);
     }
+
+    public List <TodoResponse> fetchAllTodoes(){
+        return todoClient.fetchTodoes();
+    }
+
+
 }
